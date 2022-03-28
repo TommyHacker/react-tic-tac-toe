@@ -26,15 +26,14 @@ const Game = () => {
 			}
 		}
 	};
+
 	useEffect(() => {
-		console.log(steps);
-		if (steps === 9 && winner === null) {
-			console.log('draw game');
-			return setWinner('DRAW');
-		} else if (winner === null && steps < 9) {
+		if (steps <= 9 && !winner) {
 			calcWinner(moves.x);
 			calcWinner(moves.o);
+			return;
 		}
+		if (steps === 9 && !winner) return setWinner('DRAW');
 	});
 	const [moves, setMoves] = useState({
 		x: ['', '', '', '', '', '', '', '', ''],

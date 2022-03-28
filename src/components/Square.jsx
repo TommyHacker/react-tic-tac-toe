@@ -20,7 +20,7 @@ const Square = ({
 		} else {
 			return;
 		}
-	});
+	}, [reset, setReset]);
 	const [claimed, setClaimed] = useState('');
 	const clickHandler = (num) => {
 		if (winner) {
